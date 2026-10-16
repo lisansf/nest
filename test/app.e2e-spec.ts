@@ -23,6 +23,20 @@ describe('AppController (e2e)', () => {
       .expect('Hello World!');
   });
 
+  it('GET /testing should return Halo testing', () => {
+    return request(app.getHttpServer())
+      .get('/testing')
+      .expect(200)
+      .expect('Halo testing');
+  });
+
+  it('GET /testing/v1 should return Halo testing/v1', () => {
+    return request(app.getHttpServer())
+      .get('/testing/v1')
+      .expect(200)
+      .expect('Halo testing/v1');
+  });
+
   afterEach(async () => {
     await app.close();
   });
